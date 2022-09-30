@@ -47,6 +47,7 @@ img {
   background-color: #f3e5f5;
 }
 
-.advice-slip {
+.advice-slip,
+.favorite-slips-list {
   padding: 0 1rem 0 1rem;
 }

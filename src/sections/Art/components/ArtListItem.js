@@ -13,8 +13,8 @@ function ArtListItem({ props }) {
       <p>Artist: {props.artist_title}</p>
       <h4>Artistic Subjects:</h4>
       <ul>
-        {props.term_titles.map((term, key) => (
-          <SubjectList data={term} id={`${props.image_id}${key}`} />
+        {props.term_titles.map((term, index) => (
+          <SubjectList data={term} key={`UUUID${index}${props.image_id}`} />
         ))}
       </ul>
     </li>

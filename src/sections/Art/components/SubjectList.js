@@ -1,9 +1,5 @@
 function SubjectList({ data, id }) {
-  return (
-    <li key={id} id={id}>
-      {data}
-    </li>
-  );
+  return <li>{data}</li>;
 }
 
 export default SubjectList;

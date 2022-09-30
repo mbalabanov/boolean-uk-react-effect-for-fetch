@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
 import AdviceSlip from "./components/AdviceSlip";
+import FavoriteSlipsList from "./components/FavoriteSlipsList";
 
 function AdviceSection() {
   const [advice, setAdvice] = useState({});
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    triggerRequest();
+  }, []);
+
+  const triggerRequest = () => {
     fetch("https://api.adviceslip.com/advice")
       .then((adviceRes) => adviceRes.json())
       .then((adviceRes) => {
         setAdvice(adviceRes.slip);
       });
-  }, []);
+  };
 
-  const saveFavorite = (argument) => console.log(argument);
+  const saveFavorite = (argument) => {
+    setFavorites([...favorites, argument]);
+  };
 
   return (
     <section>
@@ -21,12 +28,22 @@ function AdviceSection() {
       <section className="advice-slip">
         <h3>Some Advice</h3>
         <AdviceSlip key={advice.id} props={advice.advice} />
-        <button>Get More Advice</button>
-        <button key="Oasch" onClick={() => saveFavorite("Clicky")}>
+        <button onClick={() => triggerRequest}>Get More Advice</button>
+        <button onClick={() => saveFavorite(advice.advice)}>
           Save to Favorites
         </button>
       </section>
-      <section className="favourtite-slips-list"></section>
+      <section className="favorite-slips-list">
+        <h3>Favourite Advice Slips</h3>
+        <ul>
+          {favorites.map((favoriteListItem, index) => (
+            <FavoriteSlipsList
+              key={`advice${index}`}
+              favoriteItem={favoriteListItem}
+            />
+          ))}
+        </ul>
+      </section>
     </section>
   );
 }
