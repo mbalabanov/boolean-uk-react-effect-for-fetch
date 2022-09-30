@@ -5,7 +5,7 @@ function ArtsSection() {
   const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.artic.edu/api/v1/artworks?page=999&limit=10")
+    fetch("https://api.artic.edu/api/v1/artworks?page=997&limit=10")
       .then((artRes) => artRes.json())
       .then((artRes) => {
         setArtworks(artRes.data);

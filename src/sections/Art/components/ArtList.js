@@ -1,9 +1,9 @@
 import ArtListItem from "./ArtListItem";
 
-function ArtList(data) {
+function ArtList({ artworks }) {
   return (
     <ul className="art-list">
-      {data.artworks.map((artwork, index) => (
+      {artworks.map((artwork, index) => (
         <ArtListItem props={artwork} id={index} />
       ))}
     </ul>
