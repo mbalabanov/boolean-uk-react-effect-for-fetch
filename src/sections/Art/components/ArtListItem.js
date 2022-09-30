@@ -1,12 +1,9 @@
 function ArtListItem(props) {
-  console.log("From inside ArtListItem");
-  console.log(props.props);
-
   const artwork = props.props;
 
   return (
     <li>
-      <div class="frame">
+      <div className="frame">
         <img
           src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
           alt={artwork.title}

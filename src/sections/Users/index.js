@@ -5,7 +5,7 @@ function UsersSection() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://randomuser.me/api/?results=2")
+    fetch("https://randomuser.me/api/?results=10")
       .then((userRes) => userRes.json())
       .then((userRes) => {
         setUsers(userRes.results);

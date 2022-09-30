@@ -1,9 +1,8 @@
 import UsersListItem from "./UsersListItem";
 
 function UsersList(data) {
-  console.log(data.users);
   return (
-    <ul class="users-list">
+    <ul className="users-list">
       {" "}
       {data.users.map((user) => (
         <UsersListItem user={user} key={user.login.uuid} />
