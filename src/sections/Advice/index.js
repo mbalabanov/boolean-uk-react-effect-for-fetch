@@ -19,7 +19,9 @@ function AdviceSection() {
   };
 
   const saveFavorite = (argument) => {
-    setFavorites([...favorites, argument]);
+    if (!favorites.includes(argument)) {
+      setFavorites([...favorites, argument]);
+    }
   };
 
   return (
@@ -28,7 +30,7 @@ function AdviceSection() {
       <section className="advice-slip">
         <h3>Some Advice</h3>
         <AdviceSlip key={advice.id} props={advice.advice} />
-        <button onClick={() => triggerRequest}>Get More Advice</button>
+        <button onClick={() => triggerRequest()}>Get More Advice</button>
         <button onClick={() => saveFavorite(advice.advice)}>
           Save to Favorites
         </button>
